@@ -1,0 +1,18 @@
+.loading-error {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    &__illustration {
+        width: 80%;
+        max-width: 200px;
+    }
+}

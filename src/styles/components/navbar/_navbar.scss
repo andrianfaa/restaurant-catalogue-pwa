@@ -1,0 +1,183 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: color("background");
+    border-bottom: 0.075rem solid color("border");
+
+    > .container {
+        height: 75px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        > img {
+            width: 45px;
+            height: 45px;
+        }
+
+        &-text {
+            margin-left: 0.5rem;
+            font-weight: 600;
+            font-size: 1.35rem;
+            letter-spacing: -0.05rem;
+            color: color("headline");
+        }
+    }
+
+    &__toggle {
+        width: 45px;
+        height: 45px;
+        position: relative;
+        border: 0;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > span {
+            @include transition(0.3s);
+            position: absolute;
+            width: 25px;
+            height: 1px;
+            background-color: color("text");
+
+            &:nth-child(1) {
+                transform: translateY(-5px);
+            }
+
+            &:nth-child(2) {
+                transform: translateY(5px);
+            }
+        }
+
+        &.open {
+            > span {
+                &:nth-child(1) {
+                    transform: translateY(0) rotate(135deg);
+                }
+
+                &:nth-child(2) {
+                    transform: translateY(0) rotate(135+90deg);
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint("max", "md") {
+    .navbar {
+        &__brand {
+            &-text {
+                display: none;
+            }
+        }
+
+        &__menu {
+            @include transition-all(0.3s);
+            position: fixed;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            opacity: 0;
+            visibility: hidden;
+
+            &.open {
+                opacity: 1;
+                visibility: visible;
+
+                > ul {
+                    transform: translateX(0);
+                }
+            }
+
+            &-list {
+                @include transition(all, 0.2s);
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                max-width: 250px;
+                height: 100%;
+                background-color: color("background");
+                list-style-type: none;
+                transform: translateX(250px);
+
+                > li {
+                    margin: 0.75rem;
+
+                    > a {
+                        display: block;
+                        text-decoration: none;
+                        color: color("text");
+                        padding: 0.65rem 1rem;
+                        @include transition-all(0.3s);
+                        border-radius: 0.5rem;
+
+                        &:hover,
+                        &:focus {
+                            background-color: color("background-alt");
+                            color: color("text");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint("min", "md") {
+    .navbar {
+        &__toggle {
+            display: none;
+        }
+
+        &__menu {
+            width: 100%;
+            border-left: 0.2rem solid color("headline");
+            margin-left: 1rem;
+
+            &-list {
+                padding-left: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+                list-style-type: none;
+                width: 100%;
+
+                > li {
+                    &:not(:first-child) {
+                        margin-left: 0.5rem;
+                    }
+
+                    > a {
+                        color: color("text");
+                        text-decoration: none;
+                        padding: 0.65rem 1rem;
+                        @include transition-all(0.3s);
+                        border-radius: 0.5rem;
+
+                        &:hover,
+                        &:focus {
+                            background-color: color("background-alt");
+                            color: color("text");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.hero {
+    background-color: rgba($color: color("background-alt"), $alpha: 0.75);
+    background-image: url("../../src/public/media/heros/hero-image-small.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    > .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__content {
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        h1,
+        p {
+            color: color("background");
+            text-shadow: 0 0 1rem rgba($color: color("headline"), $alpha: 0.5);
+        }
+    }
+
+    &__search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 1rem 0;
+
+        &-input {
+            width: 100%;
+            padding: 0.9rem 3rem 0.9rem 1rem;
+            outline: 0;
+            border: 0.075rem solid color("border");
+            border-radius: 0.5rem;
+            @include transition(0.3s);
+
+            &:hover,
+            &:focus {
+                border-color: color("headline");
+            }
+        }
+
+        &-button {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            width: 2.813rem;
+            height: 2.813rem;
+            border-radius: 0.5rem;
+            background-color: transparent;
+            border: 0;
+
+            > svg {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+    }
+}
+
+@include breakpoint("min", "md") {
+    .hero {
+        background-image: url("../../src/public/media/heros/hero-image-large.jpg");
+    }
+}
+
+@include breakpoint("min", "xl") {
+    .hero {
+        background-image: url("../../src/public/media/heros/hero-image.jpg");
+    }
+}

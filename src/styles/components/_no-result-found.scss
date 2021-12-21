@@ -1,0 +1,19 @@
+no-result-found {
+    width: 100%;
+}
+
+.no-result-found {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    > img {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 1rem;
+    }
+}

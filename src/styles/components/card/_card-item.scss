@@ -1,0 +1,117 @@
+card-item {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.card-item {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 2.5rem rgba($color: #000000, $alpha: 0.1);
+
+    &__empty {
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        > img {
+            width: 100%;
+            max-width: 250px;
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        min-height: 200px;
+
+        > picture {
+            width: 100%;
+            max-height: 200px;
+            position: relative;
+            overflow: hidden;
+
+            > img {
+                width: 100%;
+                height: 100%;
+                max-height: 200px;
+                object-fit: cover;
+            }
+        }
+
+        > span {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            text-align: center;
+            padding: 0.25rem 0.75rem;
+            background-color: color("headline");
+            color: color("background");
+            font-weight: 500;
+
+            > svg {
+                width: 1rem;
+                vertical-align: middle;
+                color: rgb(255, 217, 1);
+            }
+        }
+    }
+
+    &__content {
+        width: 100%;
+        padding: 0.5rem 1rem 1rem 1rem;
+    }
+
+    &__description {
+        line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -moz-line-clamp: 3;
+        -moz-box-orient: vertical;
+        display: -moz-box;
+        -ms-line-clamp: 3;
+        -ms-box-orient: vertical;
+        display: -ms-box;
+    }
+
+    &__call-to-action {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 0.65rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background-color: color("primary");
+        color: #fff;
+        border-radius: 0.5rem;
+    }
+}
+
+@include breakpoint("min", "sm") {
+    card-item {
+        width: 100%;
+        max-width: 50%;
+    }
+}
+
+@include breakpoint("min", "lg") {
+    card-item {
+        width: 100%;
+        max-width: 33.33%;
+    }
+}

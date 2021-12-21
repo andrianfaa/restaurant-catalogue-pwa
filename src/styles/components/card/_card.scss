@@ -1,0 +1,25 @@
+@include breakpoint("max", "sm") {
+    .card {
+        &-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+}
+
+@include breakpoint("min", "sm") {
+    .card {
+        &-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    }
+}
+
+@import "./card-item";
+@import "./card-item-loading";

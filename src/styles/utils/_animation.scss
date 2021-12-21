@@ -1,0 +1,50 @@
+// Shimmer Animation
+.shimmer-animation {
+    animation: shimmer 3s infinite;
+    background-color: color("background-alt");
+    background: linear-gradient(
+        65deg,
+        color("background-alt") 4%,
+        rgba(color("background-alt"), 0.5) 25%,
+        color("background-alt") 36%
+    );
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+// Loading Animation
+.loading {
+    &-container {
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-spinner {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 0.4rem solid rgba($color: color("background-alt"), $alpha: 0.75);
+        border-top-color: color("primary");
+        animation: loading-spinner 0.5s linear infinite;
+    }
+}
+
+@keyframes loading-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

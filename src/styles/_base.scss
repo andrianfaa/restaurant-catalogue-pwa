@@ -1,0 +1,91 @@
+* {
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        scroll-behavior: smooth;
+    }
+}
+
+html {
+    text-size-adjust: 100%;
+    line-height: 1.6;
+}
+
+body {
+    background-color: color("background");
+    color: color("text");
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 0.9rem;
+}
+
+@include breakpoint("min", "md") {
+    body {
+        font-size: 1rem;
+    }
+}
+
+.wrapper {
+    position: relative;
+}
+
+.container {
+    padding: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+
+    &-flex {
+        display: flex;
+        height: 75vh;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.content {
+    margin-top: 75px;
+}
+
+input,
+button {
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+@include breakpoint("min", "md") {
+    input,
+    button {
+        font-size: 1rem;
+    }
+}
+
+.skip-to-content {
+    position: fixed;
+    z-index: 200;
+    top: 1rem;
+    left: 1rem;
+    transform: translateY(-250px);
+    padding: 0.75rem 1rem;
+    background-color: color("background");
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    border-radius: 0.5rem;
+    border: 0.1rem solid color("border");
+    color: color("headline");
+    text-decoration: none;
+    @include transition(0.3s);
+
+    &:hover,
+    &:focus {
+        border-color: color("primary");
+        transform: translateY(0);
+    }
+}

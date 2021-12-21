@@ -1,0 +1,29 @@
+.footer {
+    background-color: color("background");
+    color: color("headline");
+
+    > .container {
+        border-top: 0.075rem solid color("border");
+    }
+
+    &__copyright {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    a {
+        color: color("primary");
+        text-decoration: none;
+        display: inline-block;
+        // height: 45px;
+        vertical-align: middle;
+        line-height: 45px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
